@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/blue">
+
+                <TextView
+                    android:id="@+id/selamat_datang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:text="Selamat Datang"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"/>
+
+
+                <TextView
+                    android:id="@+id/user"
+                    android:layout_below="@+id/selamat_datang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="Bp. Fulan bin Fulan"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/txtAlamat"
+                    android:layout_below="@+id/user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="25dp"
+                    android:text="Balikpapan Selatan - Gunung Bahagia"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/txtAlamat"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/rl_warning"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@drawable/bg_peach_rounded_4dp"
+                            style="@style/BaseTextHint"
+                            android:layout_marginTop="14dp">
+                            <ImageView
+                                android:id="@+id/img_warning"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginEnd="14dp" />
+                            <TextView
+                                android:id="@+id/tv_warning"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text=""
+                                style="@style/TextContent14Sp"
+                                android:layout_toEndOf="@+id/img_warning" />
+                        </RelativeLayout>
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_tambah_data_penghuni"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:layout_marginTop="12dp"-->
+<!--                            android:text="Tambah Data Penghuni"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="16sp"/>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="right"-->
+<!--                                android:orientation="horizontal">-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Bangunan : "-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="12sp"/>-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/txtJmlBg"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="0"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="12sp"/>-->
+
+<!--                            </LinearLayout>-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="right"-->
+<!--                                android:orientation="horizontal">-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="KK : "-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="12sp"/>-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/txtJmlKk"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="0"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="12sp"/>-->
+
+<!--                            </LinearLayout>-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="right"-->
+<!--                                android:orientation="horizontal">-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Anggota : "-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="12sp"/>-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/txtJmlAnggota"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="0"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="12sp"/>-->
+
+<!--                            </LinearLayout>-->
+
+<!--                        </LinearLayout>-->
+
+                    </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/ic_baseline_exit_to_app_24"
+        android:contentDescription="logout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

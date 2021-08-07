@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#75a7ee</color>
+    <color name="colorPrimaryDark">#3a4376</color>
+    <color name="colorAccent">#d7e6fb</color>
+    <color name="bg">#826868</color>
+    <color name="black">#424242</color>
+    <color name="white">#FFFFFF</color>
+    <color name="add_properties_text">#727272</color>
+    <color name="lightBlue">#89CFF0</color>
+
+    <color name="grey_hard">#96989A</color>
+    <color name="grey_medium">#BDBFC1</color>
+    <color name="grey_soft">#F5F5F5</color>
+    <color name="white_fade">#CCFFFFFF</color>
+    <color name="black_fade">#40000000</color>
+    <color name="error_color">#F5C6C7</color>
+
+    <color name="grey_bg">#D3D3D3</color>
+    <color name="grey_text">#222D31</color>
+    <color name="grey_very_hard">#7D7D7D</color>
+    <color name="tab_indicator_color">#FFFFFF</color>
+    <color name="me_chat_bg">#FFE0B2</color>
+
+    <color name="darkOverlay">#80000000</color>
+    <color name="darkOverlaySoft">#40000000</color>
+    <color name="whiteOverlay">#40FFFFFF</color>
+
+    <color name="price_color">#8BC34A</color>
+    <color name="point_color">#eb4034</color>
+
+    <color name="skip_color">#616161</color>
+    <color name="title">#222222</color>
+    <color name="blue">#6495ED</color>
+
+    <color name="putih_hijau">#A7F7EC</color>
+    <color name="putih_hint">#AAD3C8</color>
+    <color name="hijau_muda">#008577</color>
+    <color name="hijau_tua">#00574B</color>
+</resources>
