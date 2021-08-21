@@ -36,6 +36,9 @@ class PenghuniAdapter : RecyclerView.Adapter<PenghuniAdapter.ViewHolder>() {
             val item = _items[position]
             with(binding) {
                 tvNama.text = item.nama_lengkap
+                ivEdit.setOnClickListener {
+                    onItemClickCallback.onItemClick(item)
+                }
             }
         }
     }

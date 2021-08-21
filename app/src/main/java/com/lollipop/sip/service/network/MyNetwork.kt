@@ -40,6 +40,13 @@ interface MyNetwork {
 
     @FormUrlEncoded
     @POST("api.php")
+    suspend fun showPenghuniByNIK(
+        @Field("case") case : String,
+        @Field("nik") nik : String
+    ) : PenghuniData
+
+    @FormUrlEncoded
+    @POST("api.php")
     suspend fun inputPenghuni(
         @Field("case") case : String,
         @Field("nik") nik : String,
@@ -53,5 +60,21 @@ interface MyNetwork {
         @Field("goldar") goldar : String,
         @Field("ket_tambahan") keterangan : String,
         @Field("id_bangunan_fk") id : String
+    ) : KirimData
+
+    @FormUrlEncoded
+    @POST("api.php")
+    suspend fun updatePenghuni(
+        @Field("case") case : String,
+        @Field("nik") nik : String,
+        @Field("nama_lengkap") nama : String,
+        @Field("tempat_lahir") tempat : String,
+        @Field("tgl_lahir") tanggal : String,
+        @Field("status_kawin") status : String,
+        @Field("kewarganegaraan") kewarganegaraan : String,
+        @Field("jenis_kelamin") jenisKelamin : String,
+        @Field("pekerjaan") pekerjaan : String,
+        @Field("goldar") goldar : String,
+        @Field("ket_tambahan") keterangan : String
     ) : KirimData
 }

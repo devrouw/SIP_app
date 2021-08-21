@@ -58,6 +58,17 @@ class MainRepository() {
         }
     }
 
+    suspend fun showPenghuniByNIK(case: String, nik: String) {
+        withContext(Dispatchers.IO) {
+            penghuniResult.postValue(
+                ResultOfNetwork.Success(
+                    RetrofitClient.ftp.showPenghuniByNIK(case, nik)
+                )
+            )
+            progressBar.postValue(false)
+        }
+    }
+
     suspend fun inputPenghuni(case: String, penghuni: PenghuniResult) {
         withContext(Dispatchers.IO) {
             kirimResult.postValue(
@@ -75,6 +86,29 @@ class MainRepository() {
                         penghuni.goldar,
                         penghuni.ket_tambahan,
                         penghuni.id_bangunan_fk
+                    )
+                )
+            )
+            progressBar.postValue(false)
+        }
+    }
+
+    suspend fun updatePenghuni(case: String, penghuni: PenghuniResult) {
+        withContext(Dispatchers.IO) {
+            kirimResult.postValue(
+                ResultOfNetwork.Success(
+                    RetrofitClient.ftp.updatePenghuni(
+                        case,
+                        penghuni.nik,
+                        penghuni.nama_lengkap,
+                        penghuni.tempat_lahir,
+                        penghuni.tgl_lahir,
+                        penghuni.status_kawin,
+                        penghuni.kewarganegaraan,
+                        penghuni.jenis_kelamin,
+                        penghuni.pekerjaan,
+                        penghuni.goldar,
+                        penghuni.ket_tambahan
                     )
                 )
             )

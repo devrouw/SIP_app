@@ -1,15 +1,19 @@
 package com.lollipop.sip.view.ui
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.lollipop.sip.R
 import com.lollipop.sip.databinding.ActivityMainBinding
+import com.lollipop.sip.databinding.DialogConfirmationBinding
 import com.lollipop.sip.service.model.BangunanResult
 import com.lollipop.sip.util.Constant
 import com.lollipop.sip.util.ResultOfNetwork
@@ -52,6 +56,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
     private val DEFAULT_INTERVAL_IN_MILLISECONDS = 1000L
     private val DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 5
 
+    private lateinit var _dialogBinding: DialogConfirmationBinding
+    private lateinit var _dialog: Dialog
+
     // Variables needed to listen to location updates
     private val callback = MainActivityLocationCallback(this)
 
@@ -63,21 +70,39 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
 
         initializeViewModel()
 
+        dialogBinding()
         with(_binding) {
+            _dialog = Dialog(this@MainActivity)
+            _dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            _dialog.setContentView(_dialogBinding.root)
+            _dialog.window?.setLayout((resources.displayMetrics.widthPixels), ViewGroup.LayoutParams.WRAP_CONTENT)
+
             mapView.onCreate(savedInstanceState)
             mapView.getMapAsync(this@MainActivity)
             imgWarning.setImageResource(R.drawable.ic_warn)
-            tvWarning.text =
-                "Anda Belum Menambahkan Data Penghuni, Silakan Klik Tambah Data Penghuni"
+            btLogout.setOnClickListener {
+                _dialog.show()
+            }
         }
-
         observeDataStore()
+    }
 
+    private fun dialogBinding() {
+        with(_dialogBinding) {
+            btIya.setOnClickListener {
+                _viewModelDataStore.setLoginStatus(false)
+                _dialog.dismiss()
+            }
+            btTidak.setOnClickListener {
+                _dialog.dismiss()
+            }
+        }
     }
 
     private fun initializeViewModel() {
         _viewModelDataStore = ViewModelProvider(this).get(DataStoreViewModel::class.java)
         _viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        _dialogBinding = DialogConfirmationBinding.inflate(layoutInflater)
     }
 
     @SuppressLint("SetTextI18n")
@@ -108,6 +133,26 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
                 }
             }
         })
+
+        _viewModel.penghuniAll.observe(this, {
+            when (it) {
+                is ResultOfNetwork.Success -> {
+                    when (it.value.code) {
+                        Constant.Network.REQUEST_NOT_FOUND -> {
+                            _binding.tvWarning.text =
+                                "Anda Belum Menambahkan Data Penghuni, Silakan Klik Tambah Data Penghuni"
+                        }
+                        Constant.Network.REQUEST_SUCCESS -> {
+                            _binding.tvWarning.text =
+                                "Anda Sudah Menambahkan Data Penghuni, Silakan Klik Tambah Data Penghuni Jika ingin tambah data lagi"
+                        }
+                    }
+                }
+                is ResultOfNetwork.Failure -> {
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
     }
 
     private fun isSuccessNetworkCallback(code: Int?, data: List<BangunanResult>?) {
@@ -117,6 +162,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
             }
             Constant.Network.REQUEST_SUCCESS -> {
                 if (data != null) {
+                    data[0].id_bangunan?.let { _viewModel.showPenghuni("show_penghuni", it) }
                     data[0].id_bangunan?.let {
                         data[0].lat?.let { it1 ->
                             data[0].lng?.let { it2 ->

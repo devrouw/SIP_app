@@ -3,7 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/putih_hint">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/blue"
+        android:elevation="8dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        app:titleTextColor="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14sp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Detail Bangunan"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <ProgressBar
         android:id="@+id/pb_detail"
@@ -44,8 +77,9 @@
                 app:layout_constraintDimensionRatio="H,1.5:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_jenis_bg"
-                tools:src="@drawable/backdrop" />
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                tools:src="@drawable/backdrop"
+                tools:ignore="NotSibling" />
 
             <TextView
                 android:id="@+id/tv_title_detail"
@@ -54,7 +88,8 @@
                 android:layout_marginHorizontal="14dp"
                 android:layout_marginTop="16dp"
                 android:textSize="25sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -62,91 +97,103 @@
 
             <TextView
                 android:id="@+id/tv_jenis_bg"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="@+id/tv_title_detail"
-                app:layout_constraintStart_toStartOf="@+id/tv_title_detail"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_detail"
+                android:layout_marginHorizontal="14dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_image_detail"
                 tools:text="@string/jenis_bg" />
 
             <TextView
                 android:id="@+id/tv_alamat"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="@+id/tv_title_detail"
-                app:layout_constraintStart_toStartOf="@+id/tv_title_detail"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/tv_jenis_bg"
                 app:layout_constraintTop_toBottomOf="@+id/iv_image_detail"
                 tools:text="@string/alamat" />
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:id="@+id/ll_content_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="14dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_alamat"
-                android:orientation="horizontal">
-
+                app:layout_constraintTop_toBottomOf="@+id/tv_alamat">
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tv_luas_bg_title"
-                        android:layout_width="match_parent"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="Luas Bangunan" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_luas_bg_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:text="Luas Bangunan" />
 
-                    <TextView
-                        android:id="@+id/tv_luas_bg"
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/tv_luas_bg"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            tools:text="100 x 100 m" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="100 x 100 m" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tv_luas_tanah_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:text="Luas Bangunan" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_luas_tanah_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:text="Luas Bangunan" />
 
-                    <TextView
-                        android:id="@+id/tv_luas_tanah"
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        tools:text="100 x 100 m" />
+                        <TextView
+                            android:id="@+id/tv_luas_tanah"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            tools:text="100 x 100 m" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_anggota_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="14dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_content_2"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="Penghuni Anggota" />
 
@@ -164,6 +211,27 @@
                 android:textColor="@color/black"
                 android:text="Penghuni Anggota" />
 
+            <LinearLayout
+                android:id="@+id/ly_empty"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tv_anggota_title">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_empty"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Belum ada data penghuni"/>
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -176,6 +244,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
+        app:tint="@color/white"
         android:src="@drawable/ic_add_anggota"
         android:contentDescription="anggota" />
 

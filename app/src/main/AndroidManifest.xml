@@ -28,6 +28,9 @@
             android:name=".view.ui.PenghuniActivity"
             android:screenOrientation="fullSensor" />
         <activity
+            android:name=".view.ui.EditPenghuniActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
             android:name=".view.ui.BangunanActivity"
             android:screenOrientation="fullSensor" />
     </application>

@@ -3,6 +3,7 @@ package com.lollipop.sip.view.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -61,7 +62,12 @@ class BangunanActivity : AppCompatActivity() {
         _adapter = PenghuniAdapter()
         _adapter.setOnItemClickCallback(object : PenghuniAdapter.OnItemClickCallback{
             override fun onItemClick(item: PenghuniResult) {
-                Timber.d("lihat data ${item.nama_lengkap}")
+                startActivity(
+                    Intent(
+                        this@BangunanActivity,
+                        EditPenghuniActivity::class.java
+                    ).putExtra("nik", item.nik)
+                )
             }
 
         })
@@ -74,9 +80,12 @@ class BangunanActivity : AppCompatActivity() {
                 is ResultOfNetwork.Success -> {
                     when (it.value.code) {
                         Constant.Network.REQUEST_NOT_FOUND -> {
-                            Timber.d("Request not found")
+                            _binding.rvAnggota.visibility = View.GONE
+                            _binding.lyEmpty.visibility = View.VISIBLE
                         }
                         Constant.Network.REQUEST_SUCCESS -> {
+                            _binding.rvAnggota.visibility = View.VISIBLE
+                            _binding.lyEmpty.visibility = View.GONE
                             _adapter.setList(it.value.data)
                         }
                     }

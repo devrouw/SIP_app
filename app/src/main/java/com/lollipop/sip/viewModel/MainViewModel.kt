@@ -171,11 +171,83 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    fun showPenghuniByNIK(case: String, nik: String) {
+        viewModelScope.launch {
+            try {
+                _repository.progressBar.postValue(true)
+                _repository.showPenghuniByNIK(case, nik)
+            } catch (throwable: Throwable) {
+                _repository.progressBar.postValue(false)
+                when (throwable) {
+                    is IOException -> _repository.penghuniResult
+                        .postValue(
+                            ResultOfNetwork.Failure(
+                                "[IO] error ${throwable.message} please retry",
+                                throwable
+                            )
+                        )
+                    is HttpException -> {
+                        _repository.penghuniResult
+                            .postValue(
+                                ResultOfNetwork.Failure(
+                                    "[HTTP] error ${throwable.message} please retry",
+                                    throwable
+                                )
+                            )
+                    }
+                    else -> _repository.penghuniResult
+                        .postValue(
+                            ResultOfNetwork.Failure(
+                                "[Unknown] error ${throwable.message} please retry",
+                                throwable
+                            )
+                        )
+                }
+            }
+        }
+    }
+
     fun inputPenghuni(case: String, penghuni: PenghuniResult) {
         viewModelScope.launch {
             try {
                 _repository.progressBar.postValue(true)
                 _repository.inputPenghuni(case, penghuni)
+            } catch (throwable: Throwable) {
+                _repository.progressBar.postValue(false)
+                when (throwable) {
+                    is IOException -> _repository.kirimResult
+                        .postValue(
+                            ResultOfNetwork.Failure(
+                                "[IO] error ${throwable.message} please retry",
+                                throwable
+                            )
+                        )
+                    is HttpException -> {
+                        _repository.kirimResult
+                            .postValue(
+                                ResultOfNetwork.Failure(
+                                    "[HTTP] error ${throwable.message} please retry",
+                                    throwable
+                                )
+                            )
+                    }
+                    else -> _repository.kirimResult
+                        .postValue(
+                            ResultOfNetwork.Failure(
+                                "[Unknown] error ${throwable.message} please retry",
+                                throwable
+                            )
+                        )
+                }
+            }
+        }
+    }
+
+    fun updatePenghuni(case: String, penghuni: PenghuniResult) {
+        viewModelScope.launch {
+            try {
+                _repository.progressBar.postValue(true)
+                _repository.updatePenghuni(case, penghuni)
             } catch (throwable: Throwable) {
                 _repository.progressBar.postValue(false)
                 when (throwable) {

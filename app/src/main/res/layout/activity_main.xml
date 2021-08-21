@@ -190,6 +190,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bt_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -197,6 +198,7 @@
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="40dp"
+        app:tint="@color/white"
         android:src="@drawable/ic_baseline_exit_to_app_24"
         android:contentDescription="logout" />
 
