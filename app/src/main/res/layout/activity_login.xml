@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="Username"
-                android:textColor="@color/grey_text"
+                android:textColor="@color/black"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +54,7 @@
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:textColor="@color/grey_text"
+                android:textColor="@color/black"
                 android:hint="Kata Sandi"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
