@@ -60,6 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:paddingHorizontal="8dp"
                         android:inputType="numberDecimal"
                         android:background="@drawable/bg_edittext_rounded"/>
@@ -79,6 +80,7 @@
                         android:layout_height="40dp"
                         android:textSize="14sp"
                         android:paddingHorizontal="8dp"
+                        android:textColor="@color/black"
                         android:background="@drawable/bg_edittext_rounded"/>
 
                     <LinearLayout
@@ -107,6 +109,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:textSize="14sp"
+                                android:textColor="@color/black"
                                 android:paddingHorizontal="8dp"
                                 android:background="@drawable/bg_edittext_rounded"/>
 
@@ -132,6 +135,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:textSize="14sp"
+                                android:textColor="@color/black"
                                 android:paddingHorizontal="8dp"
                                 android:background="@drawable/bg_edittext_rounded"/>
                         </RelativeLayout>
@@ -160,6 +164,7 @@
                         android:layout_height="40dp"
                         android:textSize="14sp"
                         android:paddingHorizontal="8dp"
+                        android:textColor="@color/black"
                         android:background="@drawable/bg_edittext_rounded"/>
 
                     <TextView
@@ -176,6 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:paddingHorizontal="8dp"
                         android:background="@drawable/bg_edittext_rounded"/>
 
@@ -193,6 +199,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:paddingHorizontal="8dp"
                         android:background="@drawable/bg_edittext_rounded"/>
 
@@ -210,6 +217,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:paddingHorizontal="8dp"
                         android:background="@drawable/bg_edittext_rounded"/>
 
@@ -227,6 +235,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:paddingHorizontal="8dp"
                         android:background="@drawable/bg_edittext_rounded"/>
 
@@ -245,6 +254,7 @@
                         android:layout_height="100dp"
                         android:maxLines="4"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:paddingHorizontal="8dp"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/bg_edittext_rounded"/>
